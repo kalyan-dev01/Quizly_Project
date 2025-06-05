@@ -12,5 +12,4 @@ Route.get('/verifyToken',tokenValidation)
 
 
 
-
 module.exports = Route
