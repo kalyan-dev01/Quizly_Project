@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
     return res.sendStatus(401);
   }
 
-  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+  jwt.verify(token, process.env.SECRETKEY, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid token' });
     }

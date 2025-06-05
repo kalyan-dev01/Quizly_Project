@@ -55,7 +55,7 @@ const SignUp = async (req, res) => {
 
     const token = jwt.sign(
       { id: user._id, name: user.firstname + " " + user.lastname },
-      process.env.SECRET_KEY,
+      process.env.SECRETKEY,
       { expiresIn: "1h" }
     );
 
@@ -94,7 +94,7 @@ const login = async (req, res) => {
 
     const token = jwt.sign(
       { id: user._id, name: user.firstname + " " + user.lastname },
-      process.env.SECRET_KEY,
+      process.env.SECRETKEY,
       { expiresIn: "1h" }
     );
 

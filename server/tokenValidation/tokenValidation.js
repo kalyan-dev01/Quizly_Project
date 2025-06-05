@@ -9,7 +9,7 @@ const tokenValidation = async (req, res) => {
 
   const token = authHeader.split(' ')[1];
   try {
-    const verified = jwt.verify(token, process.env.SECRET_KEY);
+    const verified = jwt.verify(token, process.env.SECRETKEY);
     console.log(verified)
     res.status(200).json({ success: true, user: verified });
   } catch (err) {
