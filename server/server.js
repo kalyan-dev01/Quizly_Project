@@ -15,7 +15,7 @@ ConnectMongoDB(process.env.mongoUrl);
 
 // Middleware
 app.use(cors({
-  origin:["https://deploy-mern-1whq.vercel.app"],
+  origin:["https://quizly-project-m31m.vercel.app"],
   methods:["POST","GET"],
   credentials:true
 }));
