@@ -30,7 +30,7 @@ const Quiz = () => {
   }, []);
 
   if (!quizdata || !quizdata.questions || quizdata.questions.length === 0) {
-    return <p>Loading or no quiz data available.</p>;
+    return <p>Loading....</p>;
   }
 
   const currentQuestion = quizdata.questions[currentQIndex];
