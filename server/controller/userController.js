@@ -19,6 +19,15 @@ const SignUp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid Email" });
     }
 
+
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      console.log("Account already exists");
+      return res
+        .status(400)
+        .json({ success: false, message: "Account already exists" });
+    }
+
     if (
       !validator.isStrongPassword(password, {
         minLength: 8,
@@ -32,14 +41,6 @@ const SignUp = async (req, res) => {
         message:
           "Password must be at least 8 characters long and include 1 uppercase letter, 1 number, and 1 symbol",
       });
-    }
-
-    const existingUser = await userModel.findOne({ email });
-    if (existingUser) {
-      console.log("Account already exists");
-      return res
-        .status(400)
-        .json({ success: false, message: "Account already exists" });
     }
 
     const saltRounds = 10;
@@ -56,7 +57,7 @@ const SignUp = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, name: user.firstname + " " + user.lastname },
       process.env.SECRETKEY,
-      { expiresIn: "1h" }
+      { expiresIn: "35d" }
     );
 
     return res.status(200).json({
@@ -95,7 +96,7 @@ const login = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, name: user.firstname + " " + user.lastname },
       process.env.SECRETKEY,
-      { expiresIn: "1h" }
+      { expiresIn: "35d" }
     );
 
     return res

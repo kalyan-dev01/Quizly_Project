@@ -113,16 +113,23 @@ const Navbar = () => {
             />
             {profileClicked && (
               <div className="absolute right-0 mt-2 w-32 bg-[#a3a3a3] text-white rounded-md shadow-lg p-2 z-50">
+                  <p onClick={()=> {navigate('/profile'); setprofileClicked(false)}} className="cursor-pointer hover:bg-[#888] p-1 rounded-md ">
+                  Profile
+                </p>
+               
                 <p
-                  className="cursor-pointer hover:bg-[#888] p-1 rounded-md"
+                  className="cursor-pointer hover:bg-[#888] p-1 rounded-md space-y-1.5"
                   onClick={() => {
                     setisLogin(false);
+                    setprofileClicked(false);
+                    navigate('/')
                     localStorage.removeItem("token")
                     setprofileClicked(false);
                   }}
                 >
                   Logout
                 </p>
+
               </div>
             )}
           </div>

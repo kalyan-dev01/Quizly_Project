@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Question Schema
 const questionSchema = new mongoose.Schema({
   id: Number,
   question: String,
@@ -8,7 +7,6 @@ const questionSchema = new mongoose.Schema({
   answers: [String]
 });
 
-// Quiz Schema
 const quizSchema = new mongoose.Schema({
   categoryId: {
     type: String,
@@ -19,7 +17,7 @@ const quizSchema = new mongoose.Schema({
     required: true
   },
   description: {
-    type: String // optional field
+    type: String
   },
   imageUrl: {
     type: String,
@@ -28,7 +26,7 @@ const quizSchema = new mongoose.Schema({
   questions: [questionSchema]
 });
 
-// Model
+
 const QuizModel = mongoose.model('quizData', quizSchema);
 
 module.exports = QuizModel;

@@ -90,7 +90,7 @@ const Quiz = () => {
 
         <button
           onClick={handleNext}
-          className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg"
+          className="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg cursor-pointer"
         >
           {currentQIndex < quizdata.questions.length - 1 ? "Next" : "Finish"}
         </button>
